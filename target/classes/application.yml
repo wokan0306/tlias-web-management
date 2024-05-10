@@ -1,0 +1,40 @@
+# 驱动类名称
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接的url
+    url: jdbc:mysql://localhost:3306/tlias
+    # 连接数据库的用户名
+    username: root
+    # 连接数据库的密码
+    password: 1234
+  servlet:
+    # Configure size limitation of uploading a single document
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+# 配置mybatis的日志，指定输出到控制台
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+cloud:
+  aws:
+    credentials:
+      access-key: [Replace with your own access-key here]
+      secret-key: [Replace with your own secret-key here]
+    region:
+      static: us-east-2
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: stanawsbucket
+
+#spring事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
